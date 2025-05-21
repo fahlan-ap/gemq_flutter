@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gemq_flutter/pages/login_screen.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'YOUR_SUPABASE_URL',
+    anonKey: 'YOUR_SUPABASE_ANON_KEY',
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
