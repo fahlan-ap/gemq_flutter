@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:gemq_flutter/pages/login_screen.dart';
+import 'package:gemq_flutter/pages/splash_screen.dart';
+import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Supabase.initialize(
-    url: 'YOUR_SUPABASE_URL',
-    anonKey: 'YOUR_SUPABASE_ANON_KEY',
+    url: 'https://tlssmepqfoskgwkvajlp.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRsc3NtZXBxZm9za2d3a3ZhamxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MTYzMTMsImV4cCI6MjA2MzM5MjMxM30.i5RXJ5XA1uDG1M9F5tpy2NwE3iTCpwUeTUxDNFjS4RU',
   );
   runApp(MyApp());
 }
@@ -16,10 +18,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }
-
