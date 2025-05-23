@@ -32,10 +32,10 @@ class AuthService extends GetxService {
     } on AuthException catch (e) {
       Get.snackbar(
         "Login Gagal",
-        e.message,
+        "Email atau Password Salah",
         backgroundColor: Colors.red,
         colorText: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
       );
     } catch (e) {
       Get.snackbar(
@@ -43,7 +43,7 @@ class AuthService extends GetxService {
         "Terjadi kesalahan saat login",
         backgroundColor: Colors.orange,
         colorText: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
       );
     }
   }
