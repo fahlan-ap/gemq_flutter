@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gemq_flutter/pages/login_screen.dart';
+import 'package:gemq_flutter/pages/register_screen.dart';
 import 'package:get/get.dart';
 
 class LandingScreen extends StatefulWidget {
@@ -41,7 +42,9 @@ class _LandingScreenState extends State<LandingScreen> {
                   ),
                   backgroundColor: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(RegisterScreen());
+                },
                 child: const Text(
                   'Sign Up',
                   style: TextStyle(

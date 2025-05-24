@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xFF7965C1),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,12 +20,12 @@ class _DashboardState extends State<Dashboard> {
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
-              )
-            )
+                color: Color(0xFF7965C1),
+              ),
+            ),
           ],
         ),
-      )
+      ),
     );
   }
 }

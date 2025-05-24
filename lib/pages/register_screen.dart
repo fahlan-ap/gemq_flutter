@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:gemq_flutter/services/login_auth.dart';
+import 'package:gemq_flutter/services/register_auth.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final emailC = TextEditingController();
   final passC = TextEditingController();
   bool _isLoading = false;
@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.only(left: 30, right: 30, bottom: 7.5),
             child: TextField(
               controller: emailC,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Email',
                 hintText: 'Enter your email',
                 hintStyle: TextStyle(color: Color.fromARGB(255, 199, 196, 196)),
@@ -58,11 +58,11 @@ class _LoginScreenState extends State<LoginScreen> {
               bottom: 7.5,
             ),
             child: TextField(
-              controller: passC, 
+              controller: passC,
               obscureText: true,
               decoration: const InputDecoration(
                 labelText: 'Password',
-                hintText: 'Enter your password',
+                hintText: 'Enter you password',
                 hintStyle: TextStyle(color: Color.fromARGB(255, 199, 196, 196)),
                 border: OutlineInputBorder(),
               ),
@@ -81,44 +81,50 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   backgroundColor: const Color(0xFF7965C1),
                 ),
-                onPressed: _isLoading
-                    ? null
-                    : () async {
-                        setState(() {
-                          _isLoading = true;
-                        });
+                onPressed:
+                    _isLoading
+                        ? null
+                        : () async {
+                          final email = emailC.text.trim();
+                          final password = passC.text.trim();
+                          
+                          setState(() {
+                            _isLoading = true;
+                          });
 
-                        await LoginAuth().login(
-                          emailC.text.trim(),
-                          passC.text.trim(),
-                        );
+                          await RegisterAuth().register(
+                            email,
+                            password,
+                          );
 
-                        setState(() {
-                          _isLoading = false;
-                        });
-                      },
+                          setState(() {
+                            _isLoading = false;
+                          });
+                        },
                 child: SizedBox(
                   height: 20,
                   child: Center(
-                    child: _isLoading
-                        ? const SizedBox(
-                            width: 20,
-                            height: 20,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    child:
+                        _isLoading
+                            ? const SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.white,
+                                ),
+                              ),
+                            )
+                            : const Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
                             ),
-                          )
-                        : const Text(
-                            'Sign In',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                            ),
-                          ),
                   ),
                 ),
-
               ),
             ),
           ),

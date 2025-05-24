@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:gemq_flutter/pages/dashboard.dart';
+import 'package:gemq_flutter/pages/home_screen.dart';
 
-class AuthService extends GetxService {
+class LoginAuth extends GetxService {
   final supabase = Supabase.instance.client;
 
   Future<void> login(String email, String password) async {
-    if (email.isEmpty || password.isEmpty) {
+    final trimmedEmail = email.trim();
+    final trimmedPassword = password.trim();
+
+    if (trimmedEmail.isEmpty || trimmedPassword.isEmpty) {
       Get.snackbar(
         "Input Kosong",
         "Email dan password tidak boleh kosong.",
@@ -20,14 +23,14 @@ class AuthService extends GetxService {
 
     try {
       final AuthResponse res = await supabase.auth.signInWithPassword(
-        email: email.trim(),
-        password: password.trim(),
+        email: trimmedEmail,
+        password: trimmedPassword,
       );
 
       final user = res.user;
       if (user != null) {
         print("Login berhasil sebagai: ${user.email}");
-        Get.off(() => const Dashboard());
+        Get.off(() => const HomeScreen());
       }
     } on AuthException catch (e) {
       Get.snackbar(
