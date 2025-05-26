@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gemq_flutter/components/nav.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:gemq_flutter/pages/home_screen.dart';
 
 class RegisterAuth extends GetxController {
   final supabase = Supabase.instance.client;
@@ -29,7 +29,7 @@ class RegisterAuth extends GetxController {
 
       final user = res.user;
       if (user != null) {
-        Get.off(() => const HomeScreen());
+        Get.off(() => const NavButton());
       }
     } on AuthException catch (e) {
       Get.snackbar(

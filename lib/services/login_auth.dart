@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gemq_flutter/components/nav.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:gemq_flutter/pages/home_screen.dart';
 
 class LoginAuth extends GetxService {
   final supabase = Supabase.instance.client;
@@ -29,8 +29,7 @@ class LoginAuth extends GetxService {
 
       final user = res.user;
       if (user != null) {
-        print("Login berhasil sebagai: ${user.email}");
-        Get.off(() => const HomeScreen());
+        Get.off(() => const NavButton());
       }
     } on AuthException catch (e) {
       Get.snackbar(

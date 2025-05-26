@@ -15,17 +15,13 @@ class _LandingScreenState extends State<LandingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Text(
-              'GemQ',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF7965C1),
-              ),
+            padding: const EdgeInsets.only(top: 25),
+            child: Image.asset(
+              "assets/images/FishR.png",
+              width: 200,
+              height: 200,
             ),
           ),
 
@@ -38,7 +34,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   padding: EdgeInsets.symmetric(vertical: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13),
-                    side: BorderSide(color: Color(0xFF7965C1), width: 2.0),
+                    side: BorderSide(color: Color(0xFF012748), width: 2.0),
                   ),
                   backgroundColor: Colors.white,
                 ),
@@ -49,7 +45,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   'Sign Up',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    color: Color(0xFF7965C1),
+                    color: Color(0xFF012748),
                   ),
                 ),
               ),
@@ -65,7 +61,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   padding: EdgeInsets.symmetric(vertical: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13),
-                    side: BorderSide(color: Color(0xFF7965C1), width: 2.0),
+                    side: BorderSide(color: Color(0xFF012748), width: 2.0),
                   ),
                   backgroundColor: Colors.white,
                 ),
@@ -76,7 +72,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   'Sign In',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    color: Color(0xFF7965C1),
+                    color: Color(0xFF012748),
                   ),
                 ),
               ),

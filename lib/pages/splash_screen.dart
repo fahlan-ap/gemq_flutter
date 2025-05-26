@@ -20,20 +20,17 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0xFF7965C1),
+    return Scaffold(
+      backgroundColor: Colors.white,  
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'GemQ',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              )
-            )
+            Image.asset(
+              "assets/images/FishR.png",
+              width: 300,
+              height: 300,
+            ),
           ],
         ),
       )

@@ -27,13 +27,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 100, bottom: 50),
-            child: Text(
-              "GemQ",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF7965C1),
-              ),
+            child: Image.asset(
+              "assets/images/FishR.png",
+              width: 250,
+              height: 250,
             ),
           ),
 
@@ -79,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13),
                   ),
-                  backgroundColor: const Color(0xFF7965C1),
+                  backgroundColor: const Color(0xFF012748),
                 ),
                 onPressed:
                     _isLoading
@@ -87,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         : () async {
                           final email = emailC.text.trim();
                           final password = passC.text.trim();
-                          
+
                           setState(() {
                             _isLoading = true;
                           });
